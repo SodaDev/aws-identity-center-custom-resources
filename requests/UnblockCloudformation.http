@@ -1,0 +1,13 @@
+PUT https://cloudformation-custom-resource-response-useast1.s3.amazonaws.com/...
+Content-Type: application/json
+
+{
+  "Status": "SUCCESS",
+  "Reason": "We have no implementation yet",
+  "PhysicalResourceId": "nothingYet",
+  "StackId": "",
+  "RequestId": "",
+  "LogicalResourceId": "CreateUserResource",
+  "NoEcho": false,
+  "Data": {}
+}
