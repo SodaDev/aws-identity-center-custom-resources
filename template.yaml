@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 15
+
+Resources:
+  SsoUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: user/
+      Handler: app.lambdaHandler
+      Runtime: nodejs16.x
+      Architectures:
+        - arm64
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - identitystore:CreateUser
+                - identitystore:DeleteUser
+                - identitystore:UpdateUser
+              Resource: "*"
+    Metadata: # Manage esbuild properties
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        Sourcemap: true
+        EntryPoints: 
+        - app.ts
+
+Outputs:
+  SsoUserFunctionResource:
+    Description: "Custom resource for managing sso users"
+    Value: !GetAtt SsoUserFunction.Arn
+    Export:
+      Name: "SsoUserFunction::Arn"

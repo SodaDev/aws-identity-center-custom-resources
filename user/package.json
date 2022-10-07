@@ -12,10 +12,18 @@
     "compile": "tsc",
     "test": "npm run compile && npm run unit"
   },
+  "dependencies": {
+    "@aws-sdk/client-identitystore": "^3.186.0",
+    "cfn-response-ts": "^0.0.5",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.6"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92",
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.14.186",
     "@types/node": "^17.0.13",
+    "@types/node-fetch": "^2.6.2",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "cfn-response": "^1.0.1",
